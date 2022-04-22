@@ -34,7 +34,8 @@ The GenStage specification recognizes three roles:
 + `:producer` — A source.
 Producers wait for demand from consumers and respond with the requested events.
 
-+ `:producer_consumer` — Both a source and a sink.
++ `:
+` — Both a source and a sink.
 Producer-consumers can respond to demand from other consumers as well as request events from producers.
 
 + `:consumer` — A sink.
@@ -145,7 +146,7 @@ defmodule GenstageExample.ProducerConsumer do
 
   def handle_events(events, _from, state) do
     numbers =
-      state
+      events
       |> Enum.filter(&Integer.is_even/1)
 
     {:noreply, numbers, state}
